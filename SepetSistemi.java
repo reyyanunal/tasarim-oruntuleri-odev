@@ -21,26 +21,16 @@ public class SepetSistemi {
   
     public static void hesaplaVeYazdir(double tutar, int tur, int odeme)
   {
-        double sonFiyat = tutar;
-        double indirimOrani = 0;
 
-        if (tur == 2) 
-        { 
-            indirimOrani = 0.10;
-            System.out.println("> Öğrenci indirimi (%10) uygulandı.");
-        } 
-        else if (tur == 3) 
-        { 
-            indirimOrani = 0.20;
-            System.out.println("> VIP indirimi (%20) uygulandı.");
-        }
+        IndirimStratejisi indirim = IndirimFabrikasi.getIndirim(tur);
+        
+        double sonFiyat = indirim.indirimHesapla(tutar);
+        
         if (tutar > 1000) 
         {
-            indirimOrani += 0.05;
             System.out.println("> 1000 TL üstü EKSTRA indirim (%5) eklendi.");
+            sonFiyat = sonFiyat * 0.95; 
         }
-    
-        sonFiyat = tutar * (1 - indirimOrani);
     
         if (odeme == 2)
         { 
