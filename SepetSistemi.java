@@ -21,31 +21,19 @@ public class SepetSistemi {
   
     public static void hesaplaVeYazdir(double tutar, int tur, int odeme)
   {
-
-        IndirimStratejisi indirim = IndirimFabrikasi.getIndirim(tur);
-        
+    	IndirimStratejisi indirim = IndirimFabrikasi.getIndirim(tur);
         double sonFiyat = indirim.indirimHesapla(tutar);
         
         if (tutar > 1000) 
         {
-            System.out.println("> 1000 TL üstü EKSTRA indirim (%5) eklendi.");
-            sonFiyat = sonFiyat * 0.95; 
+            System.out.println("1000 TL üstü EKSTRA indirim (%5) eklendi.");
+            sonFiyat *= 0.95;
         }
-    
-        if (odeme == 2)
-        { 
-            sonFiyat = sonFiyat + (sonFiyat * 0.02);
-            System.out.println("> Kredi kartı %2 komisyon eklendi.");
-        } 
-        else if (odeme == 3) 
-        {
-            sonFiyat = sonFiyat - (sonFiyat * 0.01);
-            System.out.println("> Havale %1 indirimi uygulandı.");
-        } 
-        else 
-        {
-            System.out.println("> Nakit ödeme seçildi.");
-        }
+        
+        OdemeYontemi secilenOdeme = OdemeFabrikasi.getOdeme(odeme);
+        sonFiyat = secilenOdeme.odemeHesapla(sonFiyat);
+
         System.out.println("\nTOPLAM ÖDENECEK: " + sonFiyat + " TL\n");
     }
+    
 }

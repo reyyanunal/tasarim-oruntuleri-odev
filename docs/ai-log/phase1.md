@@ -6,3 +6,4 @@ AI ne cevapladı?
 
 Ben ne uygulayacağım, neden aynı?
 -Kodumdaki sorunlardan creational örüntüler ile çözülebilecek olduğunu düşündüğüm if-else fazlalığı için soyut sınıf,arayüz açmanın kodun geliştireblirliği açısından daha doğru olduğunu bunu da factory method ile yapabileceğimi düşünüyorum.
+-Not: Aynı nesne oluşturma sorunu ödeme yöntemleri kısmında da olduğu için Factory methodu her iki yapıya da uygulayacağım.
