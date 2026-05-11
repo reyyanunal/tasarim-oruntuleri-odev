@@ -10,3 +10,8 @@
 /KrediKartiOdeme.class
 /HavaleOdeme.class
 /OdemeFabrikasi.class
+/ISepet.class
+/TemelSepet.class
+/SepetDecorator.class
+/HediyePaketiDecorator.class
+/HizliKargoDecorator.class
