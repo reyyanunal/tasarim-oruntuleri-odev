@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
 public class SiparisFacade {
 	
+	    private List<IBildirimGozlemcisi> gozlemciler = new ArrayList<>();
+	    
         public void siparisiTamamla(double tutar, int tur, int odeme, int hediye, int kargo) 
         {
         
@@ -29,5 +33,25 @@ public class SiparisFacade {
         OdemeYontemi secilenOdeme = OdemeFabrikasi.getOdeme(odeme);
         sonFiyat = secilenOdeme.odemeHesapla(sonFiyat);
         System.out.println("Toplam Odenecek Tutar: " + sonFiyat + " TL\n");
+        
+        String bildirimMesaji = "Siparişiniz başarıyla alındı. Ödenen Tutar: " + sonFiyat + " TL";
+        gozlemcilereHaberVer(bildirimMesaji);
     }
+        public void gozlemciEkle(IBildirimGozlemcisi gozlemci) 
+        {
+            gozlemciler.add(gozlemci);
+        }
+
+        public void gozlemciCikar(IBildirimGozlemcisi gozlemci) 
+        {
+            gozlemciler.remove(gozlemci);
+        }
+
+        private void gozlemcilereHaberVer(String mesaj) 
+        {
+            for (IBildirimGozlemcisi gozlemci : gozlemciler) 
+            {
+                gozlemci.guncelle(mesaj);
+            }
+        }
 }

@@ -7,6 +7,11 @@ public class SepetSistemi {
         Scanner scanner = new Scanner(System.in);
         
         SiparisFacade siparisYonetici = new SiparisFacade();
+        IBildirimGozlemcisi epostaBildirim = new EpostaBildirimcisi();
+        IBildirimGozlemcisi smsBildirim = new SMSBildirimcisi();
+
+        siparisYonetici.gozlemciEkle(epostaBildirim);
+        siparisYonetici.gozlemciEkle(smsBildirim);
         
         System.out.print("Ürünlerin toplam tutarını giriniz: ");
         double anaTutar = scanner.nextDouble();
