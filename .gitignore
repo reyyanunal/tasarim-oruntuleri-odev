@@ -19,3 +19,5 @@
 /IBildirimGozlemcisi.class
 /EpostaBildirimcisi.class
 /SMSBildirimcisi.class
+/ICommand.class
+/SiparisVerCommand.class

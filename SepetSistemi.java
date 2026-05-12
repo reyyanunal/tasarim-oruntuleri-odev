@@ -28,6 +28,7 @@ public class SepetSistemi {
         System.out.println("Hızlı Kargo İster misiniz? (1: Evet, 0: Hayır): ");
         int kargo = scanner.nextInt();
         
-        siparisYonetici.siparisiTamamla(anaTutar, kullaniciTur, odemeTur, hediye, kargo);
-    }
+        ICommand siparisKomutu = new SiparisVerCommand(siparisYonetici,anaTutar,kullaniciTur,odemeTur,hediye,kargo);
+        siparisKomutu.calistir();    
+     }
 }
