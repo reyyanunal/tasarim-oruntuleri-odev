@@ -20,4 +20,9 @@ jobs:
         distribution: 'temurin'
         
     - name: Build with javac
-      run: javac src/*.java
+      run: |
+       if [ -d src ]; then
+         javac src/*.java
+       else
+         javac *.java
+       fi
